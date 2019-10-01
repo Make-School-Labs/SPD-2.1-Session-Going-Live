@@ -88,7 +88,7 @@ Sincere dedication and attention to detail is required when working on software 
     - 1 for `staging`, 1 for `production`. MUST be the EXACT SAME configuration.
       - Environment or system configuration mismatch can lead to unexpected, difficult-to-diagnose bugs before your launch.
       - Create a `staging` server first. When you're happy with it, clone the server and rename it to `production`.
-  - **ALWAYS use a deployment checklist**.
+  - **ALWAYS use a [Deployment Checklist]**.
     - Ask your lead for a copy.
     - Are you the build manager on your team?
       - Use class activity step-by-step to guide you!
@@ -137,4 +137,4 @@ Use the Deployment Checklist distributed in class today to audit the deployment 
 [DigitalOcean]: https://digialocean.com
 [Vultr]: https://www.vultr.com/promo/try50/?service=try50
 [SSDNodes]: https://ssdnodes.com
-[Deployment Checklist]: []
+[Deployment Checklist]: [https://app.process.st/checklists/droxeys-Deployment-and-Release-Checklist-m8wE6eyejcSYi4uFYvlP_w]
