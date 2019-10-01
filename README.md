@@ -1,207 +1,139 @@
-<!-- .slide: data-background="./header.svg" data-background-repeat="none" data-background-size="40% 40%" data-background-position="center 10%" class="header" -->
-# ERDs, Resource Associations, & MongoDB
+# Going Live
 
-### [Slides](https://make-school-courses.github.io/BEW-1.1-RESTful-and-Resourceful-MVC-Architecture/Slides/09-ERDs-Resource-Associations-and-MongoDB.html ':ignore')
-### [Demo](https://github.com/Make-School-Courses/BEW-1.1-RESTful-and-Resourceful-MVC-Architecture/tree/master/Lessons/09-ERDs-Resource-Associations-and-MongoDB/demo)
+### ⏱ Agenda
 
-<!-- > -->
+1. [✅ [**20m**] Quiz](#%e2%9c%85-20m-quiz)
+2. [🏆 [**5m**] Learning Objectives](#%f0%9f%8f%86-5m-learning-objectives)
+3. [💻 [**15m**] Activity: Compare & Contrast](#%f0%9f%92%bb-15m-activity-compare--contrast)
+4. [🚢 [**35m**] Demo: Going Live... Live](#%f0%9f%9a%a2-35m-demo-going-live-live)
+5. [👍 [**10m**] Release Management Protips](#%f0%9f%91%8d-10m-release-management-protips)
+6. [🌃 After Class](#%f0%9f%8c%83-after-class)
+7. [📚 Resources & Credits](#%f0%9f%93%9a-resources--credits)
 
-## Objectives
+## ✅ [**20m**] Quiz
 
-1. Master drawing a simple **Entity Relationship Diagrams** (ERDs) (2-5 resources)
-1. Utilize the common verbiage for defining **Resource Associations**
 
-<!-- > -->
+## 🏆 [**5m**] Learning Objectives
 
-# Resource Associations
+1. Gain insight into engineering and operational decisions made by your Industry Collaboration Partners throughout the term.
+2. Use 'How the Internet Works' as an integration point to form a real-world launch plan.
+3. Analyze a production launch in class.
 
-<!-- v -->
 
-## Types of Associations
+## 💻 [**15m**] Activity: Compare & Contrast
 
-There are three sorts of resource associations:
+### Mini-Reflection
 
-1. **One-to-Many** or *Has Many/Belongs To*
-1. **One-to-One** or *Has One/Belongs To*
-1. **Many-to-Many** or *Has And Belongs to Many*, or *Has Many Through*
+📝 **PROMPT**: **Compare and contrast your current project with your experiences in the past.** Is anything **different** this term? What remains the **same**?
 
-<!-- v -->
+In the next **`5` minutes**, **write down *ALL* the similarities and differences** that come to mind.
 
-## One-to-One
+### Discussion
 
-A **person** has _exactly_ one **passport**. (A passport belongs to one person.)
+<p align="center">
+  <img src="assets/legacy.jpg" width="450px">
+</p>
 
-![one-to-one](assets/one-to-one.png)
+In the last five weeks, many of you...
 
-<!-- v -->
+- Contributed to an **existing** product!
+- Jumped in to a codebase where the **language**, **framework**, and **development methodology** had been in place *way* before this term.
+- Had to **run unit tests regularly**, and were required to add or modify the unit tests where appropriate.
+- Received **numerous, thorough code reviews** from your team lead.
+- Gained hands-on understanding of **build and release** workflows, tools, and processes.
 
-## One-to-Many
+📝 **PROMPT**: **Raise your hand if you've encountered any of these scenarios this term**.
 
-A **person** _has many_ **pets**. (A pet belongs to exactly one person.)
+Sincere dedication and attention to detail is required when working on software released to the public. The same tenacity is required when launching for the first time, too. Let's explore what it takes to successfully launch a web-based project.
 
-![one-to-many](assets/one-to-many.png)
+📝 **PROMPT**: **What ingredients do we need at launch? Think of a few possibilities, then discuss them with the person next to you**.
 
-<!-- v -->
+## 🚢 [**35m**] Demo: Going Live... Live
 
-## Many-to-Many
+**STUDENTS**: The below step by step guide is for your future reference only. **Close your laptops, dive in, and help me deploy IRL**!
 
-A **person** _can attend many_ **picnics**, and many people can attend one picnic.
+### Launch Reference Guide (Step by Step)
 
-![many-to-many](assets/many-to-many.png)
+1. Provision a virtual private server:
+     - Vendors: [DigitalOcean], [Vultr], [SSDNodes]
+2. Associate a new domain (`litebrite.live`) to the server with an `A` record.
+	- Create `staging` subdomain using a `CNAME` record.
+3. Log in to the server: `ssh root@litebrite.live`
+4. Update to install latest patches: `apt update && apt upgrade`
+5. Perform basic server hardening: `apt install ufw`, `apt install fail2ban`
+6. Enable public key authentication:  `ssh-copy-id -i ~/.ssh/id_rsa.pub  dani@litebrite.live`
+7. Test new passwordless login via public key: `ssh dani@litebrite.live`
+8. Install an application server (`nginx`, `haproxy`)
+9. Clone your project's GitHub repository in your home folder.
+10. Copy `.env` settings and other secrets to the new server.
+11. Turn off debug mode!
+12. Configure and restart your application server.
+13. Test the root domain in the browser: `http://litebrite.live`
 
-<!-- v -->
 
-## Examples
+## 👍 [**10m**] Release Management Protips
 
-<div class="compact">
+  <p align="center">
+    <img src="assets/vacation.jpg" width="450px">
+  </p>
 
-* **[Common] Facebook** - One to Many:
-    * Users have many Posts
-    * Users have many Comments
-    * Users have many Likes
+  - **Have a plan!** Write it down and discuss with your team.
+  - **Mitigate Risk**
+    - **Blue-Green Deployments**:
+      - Reduce the risk of downtime by using blue and green deployment techniques. Basically, you maintain two parallel production environments.
+      - Keep one (e.g., blue) active for traffic, while also keeping the other (e.g., green) on standby. You can use green to test new builds/versions of your application. This way, you avoid putting blue at risk of bugs and, in turn, you can find and clean-up bugs on green.
+    - **Use Canary Testing**:
+      - Alternatively (or in conjunction with blue-green), you can roll-out updates to a subsection of your users first. In case there’s a problem, you can confine that problem to that specific user group and avoid downtime for all users.
+  - **Budget for TWO servers for your `v1` release**.
+    - 1 for `staging`, 1 for `production`. MUST be the EXACT SAME configuration.
+      - Environment or system configuration mismatch can lead to unexpected, difficult-to-diagnose bugs before your launch.
+      - Create a `staging` server first. When you're happy with it, clone the server and rename it to `production`.
+  - **ALWAYS use a deployment checklist**.
+    - Ask your lead for a copy.
+    - Are you the build manager on your team?
+      - Use class activity step-by-step to guide you!
+  - **Level up your automation skills**.
+    - Continuous Integration / Continuous Delivery
+    - BEW 2.3: Docker, DevOps, & Deployments
+  - **Live Monitor all releases** with a product like [Sentry](https://sentry.io)
+  - **Above all --- stop testing manually!**
+      <p align="center">
+        <img src="assets/push.jpeg">
+      </p>
 
-* **[Common] Eventbright** - Has and Belongs to Many:
-    * Users have many Events as reservations
-    * Users belong to many Events as guests
 
-* **[Rare] Eventbright** - Has One/Belongs To
-    * User has one Profile
-    * User has one Credit Card
-</div>
+## 🌃 After Class
 
-<!-- v -->
+Use the Deployment Checklist distributed in class today to audit the deployment plan for one of your portfolio projects.
 
-## Entity Relationship Diagrams — ERDs
+## 📚 Resources & Credits
 
-Before you code a project, it's a good idea to spend some time thinking about the relationships between objects.
+### Wikipedia
 
-Connect resources in boxes with arrows depending on their relationship:
+- [Software Release Life Cycle]
+- [Software Deployment]
 
-1. Many-to-One: `=>`
-1. Many-to-Many: `<=>`
-1. One-to-Many: `-->`
+### Tutorials
 
-<!-- v -->
+ Follow [this guide](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-18-04) from DigialOcean to create and secure your own production server.
 
-![Blog erd](assets/blog-erd.jpeg)
+### Virtual Private Servers
 
-<!-- v -->
+- [DigitalOcean] - **Visit [this link](https://gist.github.com/giansalex/8be8b68dce8f4e2e8dc228cb599a596c) to get a $100 credit!**
+- [Vultr] - **Click link for a free month of service ($50 Credit)**
+- [SSDNodes]
 
-![School erd](assets/school-erd.jpeg)
+### Domain Names
 
-<!-- v -->
+- [Namecheap]
+- [Hover]
 
-## Activity - Drawing ERDs [15 min]
-
-Draw ERDs for the core features of 3 the following applications. When you finish each one, check with a partner. Form into groups of 4 and show your favorites off.
-
-1. Lyft
-1. Pinterest
-1. Airbnb
-1. Facebook
-1. Apple App Store
-
-<!-- > -->
-
-
-## Break [10 mins]
-<!-- .slide: data-background="#087CB8" -->
-
-<!-- > -->
-
-# Modeling Associations
-
-<!-- v -->
-
-## Modeling Associations Using MongoDB
-
-In a document-based database these **Resource Associations** are modeled in a few ways. Here they are ordered by frequency
-
-1. Reference Documents (very common)
-2. Value Associations (pretty common)
-3. Embedded Documents (very rare)
-
-<!-- v -->
-
-## Reference Documents
-
-In this case, each **document** (e.g. user or post) contains a reference to the **_id** field of the documents it's related to.
-
-```py
-# User has many posts
-{
-  "name": "Jamar Brown",
-  "posts": ["a41492308329r900sdf", "9309safd0as0f9f098af"]
-}
-
-# Post belongs to user (as author)
-{
-  "title": "Understanding Model View Controller",
-  "author": "asf675as6f6a4s6f"
-}
-```
-
-<!-- v -->
-
-## Value Association
-
-In this case, a document contains a reference to the **value** (usually a name or ID code) of its related documents. The document for a Reddit post might look like this:
-
-```json
-{
-  "title": "Mastering the Three Ball Cascade",
-  "subreddit": "Jugglers Anonymous"
-}
-```
-
-And we can find all posts in a subreddit like this:
-
-```py
-# Return all Posts in a specific subreddit:
-juggling_posts = db.Posts.find({subreddit: "Jugglers Anonymous"})
-for post in juggling_posts:
-    print(post.title)
-```
-
-<!-- v -->
-
-## Embedded Documents
-
-Rare for one-to-many associations.
-
-Only use when you always want all children to appear with the parent, or if you don't want to edit the children very much or at all.
-
-```py
-embedded_post = {
-  "title": "Awesome Article",
-  "comments": [
-    { "content": "What a great article" },
-    { "content": "Agreed!" }
-  ]
-}
-
-db.Posts.insert_one(embedded_post)
-```
-
-<!-- v -->
-
-## Activity
-
-Choose one of your resource diagrams and decide whether to model the associations as a **Reference to Document**, **Value Association**, or **Embedded Document**. What are the pros and cons of each?
-
-<!-- > -->
-
-## Announcements
-
-- Playlister tutorial due on Tuesday, Oct 1 - Let Meredith know of any errors
-
-- [Contractor Project](https://docs.google.com/document/d/1C8eOyLBeGMKJ2y50QwLU5tWjNb2JVcpAE4khUBIfm0U/edit) due on Thursday, Oct 10
-
-<!-- > -->
-
-## Resources
-
-- [Mongo Shell Quick Reference](https://docs.mongodb.com/manual/reference/mongo-shell/)
-- [Mongo Shell Manual](https://docs.mongodb.com/manual/mongo/)
-- [PyMongo Documentation](https://api.mongodb.com/python/current/)
-- [Flask-PyMongo Documentation](https://flask-pymongo.readthedocs.io/en/latest/)
+[Software Release Life Cycle]: https://en.wikipedia.org/wiki/Software_release_life_cycle
+[Software Deployment]: https://en.wikipedia.org/wiki/Software_deployment
+[Namecheap]: https://namecheap.com
+[Hover]: https://hover.com
+[CloudFlare]: https://cloudflare.com
+[DigitalOcean]: https://digialocean.com
+[Vultr]: https://www.vultr.com/promo/try50/?service=try50
+[SSDNodes]: https://ssdnodes.com
+[Deployment Checklist]: []
