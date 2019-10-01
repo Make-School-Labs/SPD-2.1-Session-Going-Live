@@ -5,10 +5,11 @@
 1. [✅ [**20m**] Quiz](#%e2%9c%85-20m-quiz)
 2. [🏆 [**5m**] Learning Objectives](#%f0%9f%8f%86-5m-learning-objectives)
 3. [💻 [**15m**] Activity: Compare & Contrast](#%f0%9f%92%bb-15m-activity-compare--contrast)
-4. [🚢 [**35m**] Demo: Going Live... Live](#%f0%9f%9a%a2-35m-demo-going-live-live)
-5. [👍 [**10m**] Release Management Protips](#%f0%9f%91%8d-10m-release-management-protips)
-6. [🌃 After Class](#%f0%9f%8c%83-after-class)
-7. [📚 Resources & Credits](#%f0%9f%93%9a-resources--credits)
+4. [🌴 [**10m**] BREAK](#%f0%9f%8c%b4-10m-break)
+5. [🚢 [**35m**] Demo: Going Live... Live](#%f0%9f%9a%a2-35m-demo-going-live-live)
+6. [👍 [**10m**] Release Management Protips](#%f0%9f%91%8d-10m-release-management-protips)
+7. [🌃 After Class](#%f0%9f%8c%83-after-class)
+8. [📚 Resources & Credits](#%f0%9f%93%9a-resources--credits)
 
 ## ✅ [**20m**] Quiz
 
@@ -47,6 +48,9 @@ In the last five weeks, many of you...
 Sincere dedication and attention to detail is required when working on software released to the public. The same tenacity is required when launching for the first time, too. Let's explore what it takes to successfully launch a web-based project.
 
 📝 **PROMPT**: **What ingredients do we need at launch? Think of a few possibilities, then discuss them with the person next to you**.
+
+
+## 🌴 [**10m**] BREAK
 
 ## 🚢 [**35m**] Demo: Going Live... Live
 
@@ -95,6 +99,7 @@ Sincere dedication and attention to detail is required when working on software 
   - **Level up your automation skills**.
     - Continuous Integration / Continuous Delivery
     - BEW 2.3: Docker, DevOps, & Deployments
+  - **Live Monitor all releases** with a product like [Sentry](https://sentry.io)
   - **Above all --- stop testing manually!**
       <p align="center">
         <img src="assets/push.jpeg">
