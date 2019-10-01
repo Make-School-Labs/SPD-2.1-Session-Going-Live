@@ -115,7 +115,8 @@ Use the Deployment Checklist distributed in class today to audit the deployment 
 
 ### Tutorials
 
- Follow [this guide](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-18-04) from DigialOcean to create and secure your own production server.
+ - Follow [this guide](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-18-04) from DigialOcean to create and secure your own production server.
+ - [Using Blue-Green Deployment to Reduce Downtime and Risk](https://docs.cloudfoundry.org/devguide/deploy-apps/blue-green.html)
 
 ### Virtual Private Servers
 
