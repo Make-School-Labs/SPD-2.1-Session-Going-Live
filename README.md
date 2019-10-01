@@ -51,6 +51,8 @@ Sincere dedication and attention to detail is required when working on software 
 
 ## 🚢 [**35m**] Demo: Going Live... Live
 
+> Software and cathedrals are much the same - first we build them, then we pray. 
+
 **STUDENTS**: The below step by step guide is for your future reference only. **Close your laptops, dive in, and help me deploy IRL**!
 
 ### Launch Reference Guide (Step by Step)
