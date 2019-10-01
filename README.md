@@ -17,8 +17,9 @@
 
 1. Gain insight into engineering and operational decisions made by your Industry Collaboration Partners throughout the term.
 2. Use 'How the Internet Works' as an integration point to form a real-world launch plan.
-3. Analyze a production launch in class.
-
+3. Analyze a typical production launch workflow live in class.
+4. Practice and extend knowledge and usage patterns of common Unix utilities.
+5. Understand and utilize the `ssh` utility to log into to a remote server.
 
 ## 💻 [**15m**] Activity: Compare & Contrast
 
@@ -122,7 +123,7 @@ Use the Deployment Checklist distributed in class today to audit the deployment 
 
 - [DigitalOcean] - **Visit [this link](https://gist.github.com/giansalex/8be8b68dce8f4e2e8dc228cb599a596c) to get a $100 credit!**
 - [Vultr] - **Click link for a free month of service ($50 Credit)**
-- [SSDNodes]
+- [SSDNodes] - Recommended
 
 ### Domain Names
 
