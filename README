@@ -95,11 +95,15 @@ Sincere dedication and attention to detail is required when working on software 
   - **Level up your automation skills**.
     - Continuous Integration / Continuous Delivery
     - BEW 2.3: Docker, DevOps, & Deployments
+  - **Above all --- stop testing manually!**
+      <p align="center">
+        <img src="assets/push.jpeg">
+      </p>
 
 
 ## 🌃 After Class
 
-Use the Deployment Checklist distributed in class today to audit one of your portfolio projects.
+Use the Deployment Checklist distributed in class today to audit the deployment plan for one of your portfolio projects.
 
 ## 📚 Resources & Credits
 
